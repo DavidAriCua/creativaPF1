@@ -65,12 +65,12 @@ networks:
     ipam:
       driver: default
       config:
-        subnet: 10.0.1.0/24
-        gateway: 10.0.1.1
+        - subnet: 10.0.1.0/24
+          gateway: 10.0.1.1
   LAN2:
     driver: bridge
     ipam:
       driver: default
       config:
-        subnet: 10.0.2.0/24
-        gateway: 10.0.2.1
+        - subnet: 10.0.2.0/24
+          gateway: 10.0.2.1
