@@ -3,7 +3,7 @@ version: "2"
 services:
 
   lb:
-    build: ./haproxy/
+    image: haproxy:1.7
     ports:
       - "80:80"
     networks:
