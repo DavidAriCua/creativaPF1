@@ -7,6 +7,7 @@ from subprocess import call
 import json
 import time
 import crear
+from crear import crear
 import administrar
 from administrar import encender, apagar, destroy, monitor
 
