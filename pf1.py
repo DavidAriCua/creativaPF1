@@ -89,26 +89,35 @@ else:
       changeConf(["nServers","creado"], [nServ, "True"])
   #ARRANCAR
   elif tool == "arrancar":
-    if len(arguments) > 2:
-      print("Esta herramienta no tiene opciones. Se arrancaran las maquinas creadas.\n")
     if not creada:
       print("ERROR: EL ESCENARIO NO EXISTE\n")
-    elif encendida:
-      print("ERROR: EL ESCENARIO YA HA SIDO ARRANCADO\n")
     else:
-      encender(nServ)
-      changeConf(["encendido"], ["True"])
+      if len(arguments) > 2:
+        if arguments[2] in machineNames:
+          encender(False,arguments[2])
+        else:
+          print("ERROR: LA MAQUINA ESPECIFICADA NO EXISTE\n")
+      elif encendida:
+        print("ERROR: EL ESCENARIO YA HA SIDO ARRANCADO\n")
+      else:
+        encender(True,nServ)
+        changeConf(["encendido"], ["True"])
   #APAGAR
   elif tool == "apagar":
-    if len(arguments) > 2:
-      print("Esta herramienta no tiene opciones. Se apagaran las maquinas creadas de forma segura.\n")
     if not creada:
       print("ERROR: EL ESCENARIO NO EXISTE\n")
     elif not encendida:
       print("ERROR: EL ESCENARIO NO ESTA ENCENDIDO\n")
     else:
-      apagar(nServ)
-      changeConf(["encendido"], ["False"])
+      if len(arguments) > 2:
+        if arguments[2] in machineNames:
+          apagar(False,arguments[2])
+        else:
+          print("ERROR: LA MAQUINA ESPECIFICADA NO EXISTE\n")
+      else:
+        apagar(True,nServ)
+        changeConf(["encendido"], ["False"])
+
   #DESTRUIR
   elif tool == "destruir":
     if len(arguments) > 2:

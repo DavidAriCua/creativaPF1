@@ -7,14 +7,22 @@ path = "/mnt/tmp/pf1/"
 lanNames= ["LAN1", "LAN2"]
 
 
-def encender(nServidores):
-  for n in range(0,2+nServidores):
-    call(["sudo", "virsh", "start", machineNames[n]])
-    os.system("xterm -rv -sb -rightbar -fa monospace -fs 10 -title '"+machineNames[n]+"' -e 'sudo virsh console " + machineNames[n] +"' &")
+def encender(general,nServidores):
+  if general:
+    for n in range(0,2+nServidores):
+      call(["sudo", "virsh", "start", machineNames[n]])
+      os.system("xterm -rv -sb -rightbar -fa monospace -fs 10 -title '"+machineNames[n]+"' -e 'sudo virsh console " + machineNames[n] +"' &")
+  else:
+    call(["sudo", "virsh", "start", nServidores])
+    os.system("xterm -rv -sb -rightbar -fa monospace -fs 10 -title '"+nServidores+"' -e 'sudo virsh console " + nServidores +"' &")
 
-def apagar(nServidores):
-  for n in range(0,2+nServidores):
-    call(["sudo", "virsh", "shutdown", machineNames[n]])
+def apagar(general, nServidores):
+  if general:
+    for n in range(0,2+nServidores):
+      call(["sudo", "virsh", "shutdown", machineNames[n]])
+  else:
+    call(["sudo", "virsh", "shutdown", nServidores)
+
 
 
 def destroy(nServidores, encendida):
