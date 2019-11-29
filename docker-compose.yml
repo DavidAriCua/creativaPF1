@@ -42,15 +42,15 @@ services:
     networks:
       LAN2:
         ipv4_address: 10.0.2.15
-  haproxy_img:
+  lb:
     build: ./haproxy
-      ports:
-        - 80:80
-      expose:
-        - 80
-      networks:
-        LAN2:
-          ipv4_address: 10.0.2.1
+    ports:
+      - 80:80
+    expose:
+      - 80
+    networks:
+      LAN2:
+        ipv4_address: 10.0.2.1
 networks:
     LAN2:
         driver: bridge
