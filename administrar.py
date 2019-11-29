@@ -5,7 +5,6 @@ from subprocess import call
 machineNames = ["c1","lb","s1", "s2", "s3", "s4", "s5"]
 path = "/mnt/tmp/pf1/"
 lanNames= ["LAN1", "LAN2"]
-os.chdir(path)
 
 
 def encender(nServidores):

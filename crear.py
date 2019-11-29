@@ -31,7 +31,6 @@ configAddrs = {"c1":
 lanNames= ["LAN1", "LAN2"]
 lanConfig = {"c1" : ["LAN1"],"lb":["LAN1","LAN2"], "s1":["LAN2"],"s2":["LAN2"],"s3":["LAN2"],"s4":["LAN2"],"s5":["LAN2"]}
 path = "/mnt/tmp/pf1/"
-os.chdir(path)
 
 def crear(nServidores = 2):
   # Creamos las maquinas virtuales y archivos de configuracion
