@@ -52,7 +52,23 @@ services:
     networks:
       LAN2:
         ipv4_address: 10.0.2.2
+      LAN1:
+        ipv4_address: 10.0.1.2
+  c1:
+    container_name: c1
+    image: ubuntu:16.04
+    networks:
+      LAN1:
+        ipv4_address: 10.0.1.3
+  
+        
 networks:
+  LAN1:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.1.0/24
   LAN2:
     driver: bridge
     ipam:
