@@ -41,6 +41,7 @@ def crear(nServidores = 2):
 
   #Anyadimos las LANs que se vayan a usar  
   for lan in lanNames:
+    print("Configurando " + lan)
     call(["sudo", "brctl","addbr", lan])
     call(["sudo","ifconfig", lan, "up"])
 
@@ -50,10 +51,12 @@ def crear(nServidores = 2):
 
   #Cambiamos los archivos de configuracion de red de las maquinas
   for n in range(0,2+nServidores):
+    print("Cambiando archivos de configuracion de red de "+machineNames[n])
     changeFiles(machineNames[n])
   call(["sudo", "ifconfig", "LAN1", "10.0.1.3/24"])
   call(["sudo", "ip", "route", "add", "10.0.0.0/16" ,"via", "10.0.1.1"])
   #Configuramos el Haproxy
+  print("Configurando balanceador con algoritmo Round Robin")
   configureHaProxy(nServidores)
 
 def cambiarXml(file,name):

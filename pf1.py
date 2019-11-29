@@ -56,12 +56,12 @@ def changeConf(keys,values):
 
 
 def getHelp():
-  print("Para usar la herramienta, escriba una de las opciones:\n")
-  print("crear <numero de servidores(opcional)>\n")
-  print("arrancar\n")
-  print("apagar\n")
-  print("destruir\n")
-  print("monitor\n")
+  print("Para usar la herramienta, escriba una de las opciones:")
+  print("crear <numero de servidores(opcional)>")
+  print("arrancar")
+  print("apagar")
+  print("destruir")
+  print("monitor")
 
 #Recuperamos los argumentos escritos por el terminal
 arguments = sys.argv
@@ -74,7 +74,6 @@ if len(arguments) < 2:
   getHelp()
 else:
   tool = arguments[1]
-  print(tool)
   #CREAR
   if tool == "crear":
     if len(arguments) > 2:
@@ -87,7 +86,7 @@ else:
       print("ERROR: EL MINIMO NUMERO DE MAQUINAS QUE SE PUEDE CREAR ES 2\n")
     else:
       crear(nServ)
-      changeConf(["nServers","creado"], [nServidores, "True"])
+      changeConf(["nServers","creado"], [nServ, "True"])
   #ARRANCAR
   elif tool == "arrancar":
     if len(arguments) > 2:
