@@ -53,9 +53,9 @@ services:
       LAN2:
         ipv4_address: 10.0.2.2
 networks:
-    LAN2:
-        driver: bridge
-        ipam:
-            driver: default
-            config:
-                - subnet: 10.0.2.0/24
+  LAN2:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.2.0/24
