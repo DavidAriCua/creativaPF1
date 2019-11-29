@@ -27,7 +27,7 @@ def apagar(general, nServidores):
 
 def destroy(nServidores, encendida):
   if encendida:
-    apagar(nServidores)
+    apagar(True,nServidores)
   for n in range(0,2+nServidores):
     call(["sudo", "virsh", "destroy", machineNames[n]])
   undefineCache()
