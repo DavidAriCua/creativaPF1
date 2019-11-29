@@ -21,7 +21,7 @@ def apagar(general, nServidores):
     for n in range(0,2+nServidores):
       call(["sudo", "virsh", "shutdown", machineNames[n]])
   else:
-    call(["sudo", "virsh", "shutdown", nServidores)
+    call(["sudo", "virsh", "shutdown", nServidores)]
 
 
 
