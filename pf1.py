@@ -57,11 +57,11 @@ def changeConf(keys,values):
 
 def getHelp():
   print("Para usar la herramienta, escriba una de las opciones:")
-  print("crear <numero de servidores(opcional)>")
-  print("arrancar")
-  print("apagar")
-  print("destruir")
-  print("monitor")
+  print("   crear          <numero de servidores(opcional)>     Crea un entorno con 2 maquinas clientes, un encaminador proxy balanceado y un maximo de 5 servidores")
+  print("   arrancar       <nombre del servidor(opcional)>      Arranca las maquinas. Solo arrancara la especificada añadiendo el nombre como valor opcional")
+  print("   apagar         <nombre del servidor(opcional)>      Apaga las maquinas. Solo apaga la especificada añadiendo el nombre como valor opcional")
+  print("   destruir                                            Destruye todas las maquinas")
+  print("   monitor        <nombre del servidor(opcional)>      Monitoriza las maquinas. Solo se dara informacion especifia sobre una maquina añadiendo el nombre como valor opcional")
 
 #Recuperamos los argumentos escritos por el terminal
 arguments = sys.argv
@@ -127,7 +127,7 @@ else:
     else:
       destroy(nServ, encendida)
   #HELP
-  elif tool == "help":
+  elif tool == "help" or "-h" or "--help" :
     getHelp()
   #MONITOR
   elif tool == "monitor":
@@ -143,5 +143,5 @@ else:
         monitor(True)
   #COMANDO ERRONEO
   else:
-    print("El comando que ha introducido no existe, para visualizar las herramientas disponibles, use la herramienta help.\n")
+    print("El comando que ha introducido no existe, para visualizar las herramientas disponibles, use la herramienta help, -h o --help.\n")
 
