@@ -58,10 +58,10 @@ def changeConf(keys,values):
 def getHelp():
   print("Para usar la herramienta, escriba una de las opciones:")
   print("   crear          <numero de servidores(opcional)>     Crea un entorno con 2 maquinas clientes, un encaminador proxy balanceado y un maximo de 5 servidores")
-  print("   arrancar       <nombre del servidor(opcional)>      Arranca las maquinas. Solo arrancara la especificada añadiendo el nombre como valor opcional")
-  print("   apagar         <nombre del servidor(opcional)>      Apaga las maquinas. Solo apaga la especificada añadiendo el nombre como valor opcional")
+  print("   arrancar       <nombre del servidor(opcional)>      Arranca las maquinas. Solo arrancara la especificada escribiendo el nombre como valor opcional")
+  print("   apagar         <nombre del servidor(opcional)>      Apaga las maquinas. Solo apaga la especificada escribiendo el nombre como valor opcional")
   print("   destruir                                            Destruye todas las maquinas")
-  print("   monitor        <nombre del servidor(opcional)>      Monitoriza las maquinas. Solo se dara informacion especifia sobre una maquina añadiendo el nombre como valor opcional")
+  print("   monitor        <nombre del servidor(opcional)>      Monitoriza las maquinas. Solo se dara informacion especifia sobre una maquina escribiendo el nombre como valor opcional")
 
 #Recuperamos los argumentos escritos por el terminal
 arguments = sys.argv
@@ -127,7 +127,7 @@ else:
     else:
       destroy(nServ, encendida)
   #HELP
-  elif tool == "help" or "-h" or "--help" :
+  elif tool == "help" or tool == "-h" or tool == "--help" :
     getHelp()
   #MONITOR
   elif tool == "monitor":
